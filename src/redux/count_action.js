@@ -20,7 +20,8 @@ export const createDecrementAction = data => ({ type: DECREMENT, data })
 export const createIncrementAsyncAction = (data, time) => {
     return (dispatch) => {
         setTimeout(() => {
-            dispatch(createIncrementAsyncAction(data))
-        })
+            // 这里是 createIncrementAction 而不是 createIncrementAsyncAction
+            dispatch(createIncrementAction(data))
+        },time)
     }
 }
